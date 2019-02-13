@@ -3,25 +3,25 @@
 This library allows you to show CSS `:hover` pseudo-class only when triggered by the mouse.
 
 There are several ways to achieve this goal.
-Advantages of our aproach is:
+Advantages of our aproach are:
 
-- Works on the device that has **both** mouse and touch panel.
-- Works well with Sass compiler.
-- We can hide the hover style when focus is changed by the keyboard.
+- Works on the device that has **both** mouse and touch screen.
+- Write CSS (& Sass) cleanly among other pseudo-class like `:active` or `:focus`.
+- Hide the hover style automatically when the keyboard is pressed.
 
 ### Install
 
-`$ npm install key-focus-visible`
+`$ npm install hover-visible`
 
 ### How to use
 
 Just import/require this library to your project.
 
 ```js
-import 'key-focus-visible'
+import 'hover-visible'
 ```
 
-It sets `data-hover-visible` attribute on `body` element when the pointer is moved using the mouse.
+It sets `data-hover-visible` attribute on the `body` element when the pointer is moved using the mouse.
 So you can apply the style as follows:
 
 ```css
