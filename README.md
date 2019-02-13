@@ -6,7 +6,7 @@ There are several ways to achieve this goal.
 Advantages of our aproach are:
 
 - Works on the device that has **both** mouse and touch screen.
-- Write CSS (& Sass) cleanly among other pseudo-class like `:active` or `:focus`.
+- Write CSS (& Sass) cleanly among other pseudo-classes like `:active` or `:focus`.
 - Hide the hover style automatically when the keyboard is pressed.
 
 ### Install
