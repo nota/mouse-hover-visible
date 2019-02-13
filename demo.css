@@ -4,10 +4,11 @@
 }
 
 body {
-  margin: 8px;
+  margin: 8px auto;
   font-family: sans-serif;
   font-size: 14px;
   color: #333;
+  max-width: 600px;
 }
 
 .form-group {
@@ -19,16 +20,17 @@ a {
   text-decoration: none;
 }
 
-[data-hover-visible] a:hover {
-  color: #4581b7;
-  text-decoration: underline;
-}
-
 a:active,
 a:hover:active {
   color: #fd6464;
   text-decoration: underline;
 }
+
+[data-hover-visible] a:hover {
+  color: #4581b7;
+  text-decoration: underline;
+}
+
 
 button {
   border: 1px solid #999;
@@ -40,11 +42,6 @@ button {
   font-size: 14px;
   line-height: 22px;
   color: #333;
-}
-
-button::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
 }
 
 [data-hover-visible] button:hover {

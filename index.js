@@ -39,8 +39,11 @@
     }
 
     // Safari (iOS and macOS) does not support pointerover events yet
-    // We must set hover-visible on macOS Safari
-    if (!('ontouchstart' in window)) {
+    if ('ontouchstart' in window) {
+      // on iOS Safari, we need this event to enable any :active state
+      window.addEventListener('touchstart', function () { }, options)
+    } else {
+      // we must set hover-visible on macOS Safari
       updateDoc(true)
       // force to apply the new hover style
       // this is a bad trick for Safari
