@@ -1,9 +1,6 @@
 (function () {
-  // is keyboard last used input source?
-  let wasKeyboardInput = false
+  let currentHoverVisible = false
 
-  // list of modifier keys commonly used with the mouse and
-  // can be safely ignored to prevent false keyboard detection
   const modifierKeys = [
     16, // shift
     17, // control
@@ -13,8 +10,7 @@
     93 // Windows menu / right Apple cmd
   ]
 
-  // check support for passive event listeners
-  function supportsPassive () {
+  function supportsPassiveEvent () {
     let exist = false
     try {
       const opts = Object.defineProperty({}, 'passive', {
@@ -29,44 +25,49 @@
     // set useCapture to true to capture all events
     // some components like Boostrap Dropdown menu call stopPropagate()
     const useCapture = true
-    const options = supportsPassive()
+    const options = supportsPassiveEvent()
       ? { passive: true, capture: useCapture }
       : useCapture
 
-    window.addEventListener('mousedown', onPointerDown, options)
-    if ('ontouchstart' in window) {
-      window.addEventListener('touchstart', onPointerDown, options)
+    // listen pointer events (mouse, pen, touch)
+    if (window.PointerEvent) {
+      window.addEventListener('pointerover', onPointerOver, options)
+
+      // keyboard events
+      window.addEventListener('keydown', onKeyDown, useCapture)
+      return
     }
-    window.addEventListener('keydown', onKeyDown, useCapture)
-    window.addEventListener('focusin', updateDoc, useCapture)
+
+    // Safari (iOS and macOS) does not support pointerover events yet
+    // We must set hover-visible on macOS Safari
+    if (!('ontouchstart' in window)) {
+      updateDoc(true)
+      // force to apply the new hover style
+      // this is a bad trick for Safari
+      document.body.style.pointerEvents = 'none'
+      window.requestAnimationFrame(function () {
+        document.body.style.pointerEvents = 'auto'
+      })
+    }
   }
 
-  function onPointerDown () {
-    wasKeyboardInput = false
+  function onPointerOver (event) {
+    updateDoc(event.pointerType === 'mouse')
   }
 
   function onKeyDown (event) {
     if (modifierKeys.indexOf(event.which) > -1) return
-    wasKeyboardInput = true
+    updateDoc(false)
   }
 
-  function updateDoc () {
+  function updateDoc (hoverVisible) {
+    if (currentHoverVisible === hoverVisible) return
+    currentHoverVisible = hoverVisible
     const body = document.body
-    if (wasKeyboardInput) {
-      body.dataset.focusVisible = ''
+    if (hoverVisible) {
+      body.dataset.hoverVisible = ''
     } else {
-      delete body.dataset.focusVisible
-    }
-    // add class that can not apply css with [data-focus-visible] selector
-    // eg: input[type="range"]:focus::-webkit-slider-thumb
-    const elements = document.querySelectorAll('[data-require-focus-visible-class]')
-    for (let i = 0; i < elements.length; i++) {
-      const element = elements[i]
-      if (wasKeyboardInput) {
-        element.classList.add('focus-visible')
-      } else {
-        element.classList.remove('focus-visible')
-      }
+      delete body.dataset.hoverVisible
     }
   }
 

@@ -1,20 +1,13 @@
-# Key focus visible
+# Hover visible
 
-This library allows you to show CSS `:focus` pseudo-class only when triggered by the keyboard.
+This library allows you to show CSS `:hover` pseudo-class only when triggered by the mouse.
 
-Alternatively, `:focus-visible` [polyfill](https://www.npmjs.com/package/focus-visible) is available.
-Here are advantages compared to the polifill:
+There are several ways to achieve this goal.
+Advantages of our aproach is:
 
-- Easy to debug the stylesheets on Chrome.
-- Works well with React or Vue since it doesn't change the DOM of each element.
-- Code is simpler.
-
-Detailed behavior:
-
-- Works well when the focus is returned after you close the modal/dropdown by the mouse or keyboard.
-- Works well when the focus is given programmatically.
-
-In both cases, we remember the last used input device to focus, and if it was a keyboard, focus is shown, if it was a pointing device, focus is not shown.
+- Works on the device that has **both** mouse and touch panel.
+- Works well with Sass compiler.
+- We can hide the hover style when focus is changed by the keyboard.
 
 ### Install
 
@@ -28,16 +21,12 @@ Just import/require this library to your project.
 import 'key-focus-visible'
 ```
 
-It sets `data-key-focus` attribute on `body` element when the focus is given by the keyboard.
+It sets `data-hover-visible` attribute on `body` element when the pointer is moved using the mouse.
 So you can apply the style as follows:
 
 ```css
-*:focus {
-  outline: none;
-}
-
-[data-focus-visible] *:focus {
-  box-shadow: 0 0 0px 4px rgba(64, 167, 255, 0.6);
+[data-hover-visible] button:hover {
+  background-color: #ccc;
 }
 ```
 
@@ -48,8 +37,8 @@ You can also use it in Sass:
   background-color: #fff;
 
   &:active,
-  &:hover,
-  [data-focus-visible] &:focus {
+  &:focus,
+  [data-hover-visible] &:hover {
     background-color: #ccc;
   }
 }
@@ -57,7 +46,7 @@ You can also use it in Sass:
 
 ### Demo
 
-See the live demo [here](https://nota.github.io/key-focus-visible/demo.html)
+See the live demo [here](https://nota.github.io/hover-visible/demo.html)
 
 ### Compatibility
 

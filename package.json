@@ -1,5 +1,5 @@
 {
-  "name": "key-focus-visible",
+  "name": "hover-visible",
   "version": "0.0.1",
   "engines": {
     "node": "10.12.0",

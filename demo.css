@@ -3,16 +3,6 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-*:focus {
-  outline: none;
-}
-
-[data-focus-visible] *:focus {
-  box-shadow: 0 0 0px 4px rgba(64, 167, 255, 0.6);
-  border-color: rgb(64, 167, 255);
-  outline: none;
-}
-
 body {
   margin: 8px;
   font-family: sans-serif;
@@ -20,48 +10,31 @@ body {
   color: #333;
 }
 
-.form {
-  max-width: 600px;
-}
-
 .form-group {
   margin-bottom: 20px;
 }
 
-.form-control {
-  display: block;
-  width: 100%;
-  height: 32px;
-  padding: 4px 8px;
-  font-size: 14px;
-  line-height: 22px;
-  color: #333;
-  background-clip: padding-box;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+a {
+  color: #6ab8fd;
+  text-decoration: none;
 }
 
-input.form-control[type="text"]:focus,
-textarea:focus {
-  box-shadow: 0 0 0px 4px rgba(64, 167, 255, 0.6);
-  border-color: rgb(64, 167, 255);
+[data-hover-visible] a:hover {
+  color: #4581b7;
+  text-decoration: underline;
 }
 
-textarea.form-control {
-  height: auto;
+a:active,
+a:hover:active {
+  color: #fd6464;
+  text-decoration: underline;
 }
 
-[data-focus-visible] .radio:focus,
-[data-focus-visible] .checkbox:focus {
-  outline: 4px solid rgba(64, 167, 255, 0.6);
-}
-
-.button {
+button {
   border: 1px solid #999;
   border-radius: 4px;
   background-color: #fff;
+  background-image: none;
   height: 32px;
   padding: 4px 8px;
   font-size: 14px;
@@ -69,11 +42,16 @@ textarea.form-control {
   color: #333;
 }
 
-.button::-moz-focus-inner {
+button::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.button:active {
-  background-color: #ddd;
+[data-hover-visible] button:hover {
+  background-color: #ddd
+}
+
+button:active,
+button:hover:active {
+  background-color: #999;
 }
