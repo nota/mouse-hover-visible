@@ -11,14 +11,14 @@ Advantages of our aproach are:
 
 ### Install
 
-`$ npm install hover-visible`
+`$ npm install mouse-hover-visible`
 
 ### How to use
 
 Just import/require this library to your project.
 
 ```js
-import 'hover-visible'
+import 'mouse-hover-visible'
 ```
 
 It sets `data-hover-visible` attribute on the `body` element when the pointer is moved using the mouse.
@@ -46,7 +46,7 @@ You can also use it in Sass:
 
 ### Demo
 
-See the live demo [here](https://nota.github.io/hover-visible/demo.html)
+See the live demo [here](https://nota.github.io/mouse-hover-visible/demo.html)
 
 ### Compatibility
 
