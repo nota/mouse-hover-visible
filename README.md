@@ -11,14 +11,14 @@ Advantages of our aproach are:
 
 ### Install
 
-`$ npm install mouse-hover-visible`
+`$ npm install @notainc/mouse-hover-visible`
 
 ### How to use
 
 Just import/require this library to your project.
 
 ```js
-import 'mouse-hover-visible'
+import '@notainc/mouse-hover-visible'
 ```
 
 It sets `data-hover-visible` attribute on the `body` element when the pointer is moved using the mouse.
