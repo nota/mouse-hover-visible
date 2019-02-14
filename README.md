@@ -1,4 +1,4 @@
-# Hover visible
+# mouse hover visible
 
 This library allows you to show CSS `:hover` pseudo-class only when triggered by the mouse.
 
