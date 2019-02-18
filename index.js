@@ -1,4 +1,4 @@
-var(function () {
+(function () {
   var currentHoverVisible = false
 
   var modifierKeys = [
