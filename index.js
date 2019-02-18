@@ -1,7 +1,7 @@
-(function () {
-  let currentHoverVisible = false
+var(function () {
+  var currentHoverVisible = false
 
-  const modifierKeys = [
+  var modifierKeys = [
     16, // shift
     17, // control
     18, // alt
@@ -11,9 +11,9 @@
   ]
 
   function supportsPassiveEvent () {
-    let exist = false
+    var exist = false
     try {
-      const opts = Object.defineProperty({}, 'passive', {
+      var opts = Object.defineProperty({}, 'passive', {
         get: function () { exist = true }
       })
       window.addEventListener('test', null, opts)
@@ -24,8 +24,8 @@
   function init () {
     // set useCapture to true to capture all events
     // some components like Boostrap Dropdown menu call stopPropagate()
-    const useCapture = true
-    const options = supportsPassiveEvent()
+    var useCapture = true
+    var options = supportsPassiveEvent()
       ? { passive: true, capture: useCapture }
       : useCapture
 
@@ -66,7 +66,7 @@
   function updateDoc (hoverVisible) {
     if (currentHoverVisible === hoverVisible) return
     currentHoverVisible = hoverVisible
-    const body = document.body
+    var body = document.body
     if (hoverVisible) {
       body.dataset.hoverVisible = ''
     } else {
