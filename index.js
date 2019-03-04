@@ -74,5 +74,5 @@
     }
   }
 
-  init()
+  document.addEventListener('load', init)
 })()
