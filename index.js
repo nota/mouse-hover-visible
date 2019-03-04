@@ -74,5 +74,9 @@
     }
   }
 
-  document.addEventListener('load', init)
+  if (document.readyState === 4) {
+    init()
+  } else {
+    document.addEventListener('load', init)
+  }
 })()
