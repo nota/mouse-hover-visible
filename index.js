@@ -74,9 +74,9 @@
     }
   }
 
-  if (document.readyState === 4) {
+  if (document.readyState === 'interactive'){
     init()
   } else {
-    document.addEventListener('load', init)
+    document.addEventListener('DOMContentLoaded', init)
   }
 })()
