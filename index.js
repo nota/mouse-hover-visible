@@ -10,7 +10,7 @@
     93 // Windows menu / right Apple cmd
   ]
 
-  function supportsPassiveEvent () {
+  function supportsPassiveEvent ()   {
     var exist = false
     try {
       var opts = Object.defineProperty({}, 'passive', {
