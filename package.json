@@ -2,33 +2,28 @@
   "name": "@notainc/mouse-hover-visible",
   "version": "0.0.9",
   "description": "This library allows you to show CSS :hover pseudo-class only when triggered by the mouse.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nota/mouse-hover-visible.git"
-  },
-  "bugs": {
-    "url": "https://github.com/nota/mouse-hover-visible/issues"
-  },
-  "homepage": "https://github.com/nota/mouse-hover-visible",
   "keywords": [
     "css",
     "hover",
     "pseudo"
   ],
+  "homepage": "https://github.com/nota/mouse-hover-visible",
+  "bugs": {
+    "url": "https://github.com/nota/mouse-hover-visible/issues"
+  },
   "license": "MIT",
-  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nota/mouse-hover-visible.git"
+  },
   "files": [
     "README.md",
     "index.js",
     "package.json",
     "LICENSE"
   ],
-  "scripts": {
-    "test": "standard",
-    "prepublishOnly": "npm test"
-  },
+  "main": "index.js",
+  "scripts": {},
   "dependencies": {},
-  "devDependencies": {
-    "standard": "12.0.1"
-  }
+  "devDependencies": {}
 }
